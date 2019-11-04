@@ -1,0 +1,40 @@
+<!-- <pre>{{ advertisers | json }}</pre> -->
+
+<div class="m-5">
+    
+    <table mat-table [dataSource]="advertisers" class="mat-elevation-z8 w-100">
+
+        <!-- Orgainsation Column -->
+        <ng-container matColumnDef="organisation">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+    
+        <!-- Url Column -->
+        <ng-container matColumnDef="url">
+            <th mat-header-cell *matHeaderCellDef> Url </th>
+            <td mat-cell *matCellDef="let element"> {{element.orgurl}} </td>
+        </ng-container>
+    
+        <!-- Telephone Column -->
+        <ng-container matColumnDef="telephone">
+            <th mat-header-cell *matHeaderCellDef> Telephone </th>
+            <td mat-cell *matCellDef="let element"> {{element.telephone}} </td>
+        </ng-container>
+    
+            <!-- Address Column -->
+            <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef> Address </th>
+            <td mat-cell *matCellDef="let element"> {{element.apiAddress?.address}} </td>
+        </ng-container>
+    
+            <!-- Postcode Column -->
+            <ng-container matColumnDef="postcode">
+            <th mat-header-cell *matHeaderCellDef> Postcode </th>
+            <td mat-cell *matCellDef="let element"> {{element.apiAddress?.postcode}} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
