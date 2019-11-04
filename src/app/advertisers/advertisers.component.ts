@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Advertiser } from '../interfaces/advertiser';
 import { MatTableDataSource } from '@angular/material/table';
+import { Address } from '../interfaces/address';
 
 @Component({
   selector: 'app-advertisers',
@@ -34,10 +35,10 @@ export class AdvertisersComponent implements OnInit {
 
   async getAddress(address: string) {
     this.api.getAddressesAPI(address)
-    .subscribe( response => {
+    .subscribe( addressFromApi => {
       // console.log('address', response.body);
       this.advertisers.forEach(advertiser => {
-        advertiser.apiAddress = response.body;
+        advertiser.apiAddress = addressFromApi.body;
       });
     });
   }
