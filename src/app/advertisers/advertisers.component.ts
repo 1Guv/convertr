@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Advertiser } from '../interfaces/advertiser';
 import { MatTableDataSource } from '@angular/material/table';
-import { Address } from '../interfaces/address';
 
 @Component({
   selector: 'app-advertisers',
@@ -21,7 +20,7 @@ export class AdvertisersComponent implements OnInit {
     this.getAdvertisers();
   }
 
-  async getAdvertisers() {
+  getAdvertisers() {
     this.api.getAdvertisersAPI()
       .subscribe( response => {
         // console.log(response.body);
@@ -33,7 +32,7 @@ export class AdvertisersComponent implements OnInit {
       });
   }
 
-  async getAddress(address: string) {
+  getAddress(address: string) {
     this.api.getAddressesAPI(address)
     .subscribe( addressFromApi => {
       // console.log('address', response.body);
@@ -41,6 +40,10 @@ export class AdvertisersComponent implements OnInit {
         advertiser.apiAddress = addressFromApi.body;
       });
     });
+  }
+
+  addAdvertiser() {
+    console.log('addAdvertiser');
   }
 
 }
