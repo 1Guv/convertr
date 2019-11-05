@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Advertiser } from '../interfaces/advertiser';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material';
+import { AddAdvertiserDialogComponent } from '../add-advertiser-dialog/add-advertiser-dialog.component';
 
 @Component({
   selector: 'app-advertisers',
@@ -14,7 +16,10 @@ export class AdvertisersComponent implements OnInit {
   displayedColumns = ['organisation', 'url', 'telephone', 'address', 'postcode'];
   dataSource: MatTableDataSource<any>;
 
-  constructor(private api: ApiService) { }
+  constructor(
+    private api: ApiService,
+    public dialog: MatDialog
+    ) { }
 
   ngOnInit() {
     this.getAdvertisers();
@@ -23,7 +28,7 @@ export class AdvertisersComponent implements OnInit {
   getAdvertisers() {
     this.api.getAdvertisersAPI()
       .subscribe( response => {
-        // console.log(response.body);
+        console.log('Advertisers', response.body);
         this.advertisers = response.body['hydra:member'];
         this.advertisers.forEach(advertiser => {
           const address = advertiser.address;
@@ -35,7 +40,7 @@ export class AdvertisersComponent implements OnInit {
   getAddress(address: string) {
     this.api.getAddressesAPI(address)
     .subscribe( addressFromApi => {
-      // console.log('address', response.body);
+      console.log('address', addressFromApi.body);
       this.advertisers.forEach(advertiser => {
         advertiser.apiAddress = addressFromApi.body;
       });
@@ -44,6 +49,9 @@ export class AdvertisersComponent implements OnInit {
 
   addAdvertiser() {
     console.log('addAdvertiser');
+    const dialogRef = this.dialog.open(AddAdvertiserDialogComponent, {
+        width: '550px'
+      });
   }
-
 }
+

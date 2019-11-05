@@ -6,18 +6,25 @@ import { AdvertisersComponent } from './advertisers/advertisers.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AddAdvertiserDialogComponent } from './add-advertiser-dialog/add-advertiser-dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdvertisersComponent
+    AdvertisersComponent,
+    AddAdvertiserDialogComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ],
+  entryComponents: [AddAdvertiserDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
