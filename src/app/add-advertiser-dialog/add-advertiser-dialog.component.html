@@ -10,7 +10,7 @@
     </div>
 
     <section mat-dialog-content class="text-center my-2">
-        <form [formGroup]="advertisersFormGroup" (ngSubmit)="createAdvertiser(advertisersFormGroup)">
+        <form [formGroup]="advertisersFormGroup">
             <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Name of organisation</mat-label>
                 <input matInput placeholder="Name of organisation" formControlName="name" >
@@ -69,11 +69,15 @@
                 <input matInput placeholder="postcode" formControlName="postcode">
                 <mat-hint>Please enter your postcode</mat-hint>
             </mat-form-field>
-
-            <footer mat-dialog-actions class="my-3">
-                <button mat-button (click)="onNoClick()">Cancel</button>
-                <button mat-raised-button color="primary" class="ml-auto" [disabled]="advertisersFormGroup.invalid">Create</button>
-            </footer>
         </form>
     </section>
+
+    <footer mat-dialog-actions class="my-3">
+        <button mat-button (click)="onNoClick()">Cancel</button>
+        <button mat-raised-button 
+                color="primary"
+                class="ml-auto"
+                (click)="createAdvertiser(advertisersFormGroup)"
+                [disabled]="advertisersFormGroup.invalid">Create</button>
+    </footer>
 </div>
