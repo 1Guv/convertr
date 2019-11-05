@@ -3,11 +3,17 @@
 This project was generated with 
 
 [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3.
+
 [Angular] version 8.2.13.
+
 [Node] version 10.16.0.
+
 [Angular Material] version 8.2.3.
+
 [RxJS] version 6.4.0.
+
 [Typescript] version 3.5.3.
+
 [Bootstrap] version 4.3.1.
 
 ## Development server
