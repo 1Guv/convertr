@@ -5,10 +5,12 @@ import { AppComponent } from './app.component';
 import { AdvertisersComponent } from './advertisers/advertisers.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatInputModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddAdvertiserDialogComponent } from './add-advertiser-dialog/add-advertiser-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MatTableModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    ReactiveFormsModule
   ],
   entryComponents: [AddAdvertiserDialogComponent],
   providers: [],
