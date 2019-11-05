@@ -58,8 +58,8 @@ export class AddAdvertiserDialogComponent implements OnInit {
       this.address.city = form.value.city;
       this.address.postcode = form.value.postcode;
 
-      console.log('Advertiser:', this.advertiser);
-      console.log('Address:', this.address);
+      // console.log('Advertiser:', this.advertiser);
+      // console.log('Address:', this.address);
 
       this.api.postAdvertiserAPI(this.advertiser)
         .pipe(
@@ -77,6 +77,7 @@ export class AddAdvertiserDialogComponent implements OnInit {
       console.log('Form Error:', form.errors);
     };
 
+    // Starts here
     form.status === 'VALID' ? saveAdvertiser() : processError();
 
   }

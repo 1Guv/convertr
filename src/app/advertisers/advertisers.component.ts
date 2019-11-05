@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Advertiser } from '../interfaces/advertiser';
-import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material';
 import { AddAdvertiserDialogComponent } from '../add-advertiser-dialog/add-advertiser-dialog.component';
 import { takeUntil } from 'rxjs/operators';
@@ -16,7 +15,6 @@ export class AdvertisersComponent implements OnInit {
 
   advertisers: Advertiser[];
   displayedColumns = ['organisation', 'url', 'telephone', 'address', 'postcode'];
-  dataSource: MatTableDataSource<any>;
   private destroyed = new Subject<boolean>();
   error: string;
 

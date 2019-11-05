@@ -3,7 +3,9 @@ import { HttpClient, HttpResponse, HttpHeaders, HttpErrorResponse } from '@angul
 import { Observable, of } from 'rxjs';
 import { Advertiser } from '../interfaces/advertiser';
 import { Address } from '../interfaces/address';
-import { catchError, tap, map, mergeMap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +17,8 @@ export class ApiService {
   addressesUrl2 = 'https://arkham.cvtr.io/test/api';
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private snackBar: MatSnackBar
   ) {}
 
   getAdvertisersAPI(): Observable<HttpResponse<Advertiser[]>> {
@@ -40,7 +43,8 @@ export class ApiService {
         }),
         tap((res: any) => {
           // Getting HTTP response here
-          console.log('API Response', res.message);
+          console.log('API Response 1', res.message);
+          this.handleError(res.message);
         }));
   }
 
@@ -56,12 +60,13 @@ export class ApiService {
         }),
         tap((res: any) => {
           // Getting HTTP response here
-          console.log('res', res);
-          console.log('res', res.message);
+          console.log('API Response 2', res.message);
+          this.handleError(res.message);
         }));
   }
 
   private handleError(httpError: HttpErrorResponse | any) {
-    console.log('Error', httpError);
+    console.log('handleError', httpError);
+    this.snackBar.open(httpError, 'Close');
   }
 }

@@ -40,7 +40,7 @@
             <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Email</mat-label>
                 <input matInput
-                       placeholder="email"
+                       placeholder="Email"
                        formControlName="email"
                        pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}">
                 <mat-hint>Please enter your email</mat-hint>
@@ -66,7 +66,7 @@
 
             <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Postcode</mat-label>
-                <input matInput placeholder="postcode" formControlName="postcode">
+                <input matInput placeholder="Postcode" formControlName="postcode">
                 <mat-hint>Please enter your postcode</mat-hint>
             </mat-form-field>
         </form>
@@ -78,6 +78,8 @@
                 color="primary"
                 class="ml-auto"
                 (click)="createAdvertiser(advertisersFormGroup)"
-                [disabled]="advertisersFormGroup.invalid">Create</button>
+                [disabled]="advertisersFormGroup.invalid">
+                Create
+        </button>
     </footer>
 </div>
