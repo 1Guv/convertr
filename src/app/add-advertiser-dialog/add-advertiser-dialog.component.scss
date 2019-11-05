@@ -1,7 +1,17 @@
 #add-advertiser-dialog {
-    .close-icon-button {
-        top: -20px;
-        padding-right: 0;
-        margin-right: -70%;
+
+    ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent; /* make scrollbar transparent */
+    }
+
+    .header {
+        border-bottom: black 2px solid;
+
+        .close-icon-button {
+            top: -40px;
+            padding-right: 0;
+            margin-right: -85%;
+        }
     }
 }

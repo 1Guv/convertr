@@ -1,6 +1,10 @@
-<!-- <pre>{{ advertisers | json }}</pre> -->
 
-<div class="m-5">
+
+<div id="advertisers" class="m-5">
+    <header class="text-center mb-3">
+        <h1>Convertr</h1>
+        <h6>Tech Test 2019</h6>
+    </header>
     
     <table mat-table [dataSource]="advertisers" class="mat-elevation-z8 w-100">
 
@@ -38,5 +42,5 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-    <button mat-raised-button color="primary" class="my-5" (click)="addAdvertiser()">Add Advertiser</button>
+    <button mat-raised-button color="primary" class="my-5 float-right" (click)="addAdvertiser()">Add Advertiser</button>
 </div>
